@@ -1,6 +1,7 @@
 package martinfowler.chapter8_11;
 
-import junit.framework.Assert;
+
+import org.junit.Assert;
 
 import java.util.HashSet;
 import java.util.Iterator;
