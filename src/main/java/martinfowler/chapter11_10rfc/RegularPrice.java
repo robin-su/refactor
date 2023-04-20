@@ -1,7 +1,5 @@
 package martinfowler.chapter11_10rfc;
 
-import com.geeksu.cn.complete.refactor.martinfowler.chapter01rfc.Movie;
-
 public class RegularPrice extends Price {
     @Override
     int getPriceCode() {

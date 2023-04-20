@@ -1,6 +1,5 @@
 package martinfowler.chapter11_10;
 
-import com.geeksu.cn.complete.refactor.martinfowler.chapter01rfc.Movie;
 
 public class ChildrensPrice extends Price {
     @Override
