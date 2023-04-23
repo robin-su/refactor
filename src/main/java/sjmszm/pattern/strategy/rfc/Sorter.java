@@ -1,6 +1,5 @@
 package sjmszm.pattern.strategy.rfc;
 
-import org.checkerframework.checker.units.qual.A;
 
 import java.io.File;
 import java.util.ArrayList;
