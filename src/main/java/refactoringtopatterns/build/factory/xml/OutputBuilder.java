@@ -1,6 +1,6 @@
 package refactoringtopatterns.build.factory.xml;
 
-public abstract class OutputBuilder {
+public interface OutputBuilder {
 
     public abstract void addBelow(String value);
 

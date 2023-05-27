@@ -1,6 +1,6 @@
 package refactoringtopatterns.build.factory.xml.rfc;
 
-public class DOMBuilder extends OutputBuilder {
+public class DOMBuilder implements OutputBuilder {
 
     private String rootName;
 

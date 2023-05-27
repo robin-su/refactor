@@ -14,7 +14,7 @@ public class XMLBuilderTest extends TestCase  {
                         "<orders>" +
                         "<customer>" +
                         "</customer>";
-        outputBuilder = new XMLBuilder("orders");
+        outputBuilder = new XMLBuilder( "orders");
         outputBuilder.addBelow("order");
         try {
             outputBuilder.addAbove("customer");

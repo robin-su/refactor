@@ -2,9 +2,17 @@ package refactoringtopatterns.build.factory.parser;
 
 public class StringParser {
 
-    public Node find(StringBuffer textBuffer, int textBegin, int textEnd, boolean shouldDecode) {
-        Parser parser = new Parser();
-        return StringNode.createStringNode(textBuffer,textBegin,textEnd,parser.shouldDecode());
+    private Parser parser;
+
+    public StringParser(Parser parser) {
+        this.parser = parser;
     }
 
+    public Node findString(String url) {
+        return StringNode.createStringNode(
+                url,
+                this.parser.shouldDecode(),
+                this.parser.shouldRemoveEscapeCharacters()
+        );
+    }
 }

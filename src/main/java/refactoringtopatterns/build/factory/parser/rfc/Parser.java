@@ -1,16 +1,20 @@
-package refactoringtopatterns.build.factory.parser;
+package refactoringtopatterns.build.factory.parser.rfc;
 
 public class Parser {
 
-    private Boolean shouldDecode;
-    private boolean shouldRemoveEscapeCharacters;
+
     private StringParser stringParser;
 
     public Parser() {
         this.stringParser = new StringParser(this);
     }
 
-    public Boolean shouldDecode() {
+    /**
+     * 5.将配置系项挪到NodeFactory
+     *
+     * @return
+     */
+    /*public Boolean shouldDecode() {
         return shouldDecode;
     }
 
@@ -24,10 +28,20 @@ public class Parser {
 
     public void setShouldRemoveEscapeCharacters(boolean shouldRemoveEscapeCharacters) {
         this.shouldRemoveEscapeCharacters = shouldRemoveEscapeCharacters;
-    }
+    }*/
 
     public Node parse(String url) {
         return this.stringParser.findString(url);
+    }
+
+    private NodeFactory nodeFactory;
+
+    public void setNodeFactory(NodeFactory nodeFactory) {
+        this.nodeFactory = nodeFactory;
+    }
+
+    public NodeFactory getNodeFactory() {
+        return nodeFactory;
     }
 }
 

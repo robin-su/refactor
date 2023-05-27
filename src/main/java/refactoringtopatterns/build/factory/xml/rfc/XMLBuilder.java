@@ -1,6 +1,6 @@
 package refactoringtopatterns.build.factory.xml.rfc;
 
-public class XMLBuilder extends OutputBuilder {
+public class XMLBuilder implements OutputBuilder {
 
     private String rootName;
 
