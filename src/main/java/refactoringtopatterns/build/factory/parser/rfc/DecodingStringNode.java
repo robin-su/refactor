@@ -1,10 +1,10 @@
-package refactoringtopatterns.build.factory.parser.rfc;
+package refactoringtopatterns.build.factory.parser;
 
 public class DecodingStringNode implements Node {
 
-    private Node node;
+    private String text;
 
-    public DecodingStringNode(Node node) {
-        this.node = node;
+    public DecodingStringNode(String text) {
+        this.text = text;
     }
 }

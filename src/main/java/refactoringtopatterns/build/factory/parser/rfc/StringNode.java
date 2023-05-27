@@ -1,15 +1,20 @@
-package refactoringtopatterns.build.factory.parser.rfc;
+package refactoringtopatterns.build.factory.parser;
 
 public class StringNode implements Node {
 
-    private StringBuffer textBuffer;
-    private int textBegin;
-    private int textEnd;
+    private String text;
+    private String type;
 
-    public StringNode(StringBuffer textBuffer,int textBegin, int textEnd) {
-        this.textBuffer = textBuffer;
-        this.textBegin = textBegin;
-        this.textEnd = textEnd;
+    public StringNode(String text) {
+        this.type = "default";
+        this.text = text;
+    }
+
+    public static Node createStringNode(String text, boolean shouldDecode, boolean shouldRemoveEscapeCharacters) {
+        if(shouldDecode) {
+            return new DecodingStringNode(text);
+        }
+        return new StringNode(text);
     }
 
 }

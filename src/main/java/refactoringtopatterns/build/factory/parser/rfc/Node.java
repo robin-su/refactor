@@ -1,4 +1,4 @@
-package refactoringtopatterns.build.factory.parser.rfc;
+package refactoringtopatterns.build.factory.parser;
 
 public interface Node {
 }
