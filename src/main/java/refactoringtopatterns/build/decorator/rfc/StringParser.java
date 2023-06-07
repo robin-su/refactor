@@ -6,9 +6,9 @@ class StringParser {
         int textBegin = 0;
         int textEnd = 0;
         StringBuffer textBuffer = new StringBuffer();
-        return new StringNode(textBuffer,textBegin,textEnd,
-                reader.getParser().shouldDecodeNodes(),
-                reader.getParser().shouldRemoveEscapeCharacters());
+        //4.3 使用Create Method 创建StringNode
+        return StringNode.createStringNode(textBuffer,textBegin,textEnd,
+                reader.getParser().shouldDecodeNodes());
     }
 
 }

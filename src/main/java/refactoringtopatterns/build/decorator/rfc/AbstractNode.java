@@ -17,4 +17,16 @@ public abstract class AbstractNode implements Node {
         this.nodeBegin = nodeBegin;
         this.nodeEnd = nodeEnd;
     }
+
+    //2.1 为getText和setText添加默认实现
+    @Override
+    public String getText() {
+        return null;
+    }
+
+    //2.2 为getText和setText添加默认实现
+    @Override
+    public void setText(String text) {
+
+    }
 }
