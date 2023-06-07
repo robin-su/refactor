@@ -9,7 +9,11 @@ public class Client {
 
         StringBuffer decodedContent = new StringBuffer();
         Parser parser = Parser.createParser(ENCODED_WORKSHOP_TITLE);
-        parser.setNodeDecoding(true);
+        NodeFactory nodeFactory = new NodeFactory();
+        nodeFactory.setShouldDecode(true);
+        nodeFactory.setShouldRemoveEscapeCharacters(true);
+        parser.setNodeFactory(nodeFactory);
+//        parser.setNodeDecoding(true);
         NodeIterator nodes = parser.elements();
 
         while(nodes.hasNext()) {

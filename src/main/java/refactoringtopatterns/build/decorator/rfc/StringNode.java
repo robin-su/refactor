@@ -5,19 +5,19 @@ public class StringNode extends AbstractNode {
     //5.为类型码创建子类
     //6.1 去除shouldDecode类型码和设值函数，以及接收他的构造函数，只需要让shouldDecode()方法返回false就可以了
 //    private boolean shouldDecode = false;
-    private boolean shouldRemoveEscapeCharacters = false;
+//    private boolean shouldRemoveEscapeCharacters = false;
     protected StringBuffer textBuffer;
 
     private String text;
 
 
-    private StringNode(StringBuffer textBuffer,
-                      int textBegin,
-                      int textEnd,
-                      boolean shouldRemoveEscapeCharacters){
-        this(textBuffer, textBegin,textEnd);
-        this.shouldRemoveEscapeCharacters = shouldRemoveEscapeCharacters;
-    }
+//    private StringNode(StringBuffer textBuffer,
+//                      int textBegin,
+//                      int textEnd,
+//                      boolean shouldRemoveEscapeCharacters){
+//        this(textBuffer, textBegin,textEnd);
+//        this.shouldRemoveEscapeCharacters = shouldRemoveEscapeCharacters;
+//    }
 
 
     //4.1 将构造器改成私有
@@ -31,16 +31,16 @@ public class StringNode extends AbstractNode {
 
     //4.2 创建Create Method,注意返回Node
     // 5.3 修改Create Method,使其能够根据类型码shouldDecode来创建适当的对象
-    public static Node createStringNode(StringBuffer textBuffer,
-                                 int textBegin,
-                                 int textEnd,
-                                 boolean shouldDecode) {
-        if(shouldDecode) {
-            // 10.6 此时DecodingNode不再继承与Node，应该让DecodingNode实现Node
-            return new DecodingNode(textBuffer,textBegin,textEnd);
-        }
-        return new StringNode(textBuffer, textBegin, textEnd);
-    }
+//    public static Node createStringNode(StringBuffer textBuffer,
+//                                 int textBegin,
+//                                 int textEnd,
+//                                 boolean shouldDecode) {
+//        if(shouldDecode) {
+//            // 10.6 此时DecodingNode不再继承与Node，应该让DecodingNode实现Node
+//            return new DecodingNode(textBuffer,textBegin,textEnd);
+//        }
+//        return new StringNode(textBuffer, textBegin, textEnd);
+//    }
 
 
     public StringNode(StringBuffer textBuffer,
@@ -71,15 +71,15 @@ public class StringNode extends AbstractNode {
     // 7.1 将类型码相关的判断逻辑去除，属于子类行的将其移动到子类中去
     @Override
     public String toPlainTextString() {
-        String result = this.textBuffer.toString();
+//        String result = this.textBuffer.toString();
 //        if(this.shouldDecode) {
 //            result = Translate.decode(result);
 //        }
 
-        if(this.shouldRemoveEscapeCharacters) {
-            result = ParserUtils.removeEscapeCharacters(result);
-        }
-        return result;
+//        if(this.shouldRemoveEscapeCharacters) {
+//            result = ParserUtils.removeEscapeCharacters(result);
+//        }
+        return this.textBuffer.toString();
     }
 
     public String getText() {
