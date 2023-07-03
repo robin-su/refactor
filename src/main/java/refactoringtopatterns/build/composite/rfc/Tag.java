@@ -1,9 +1,9 @@
-package refactoringtopatterns.build.composite;
+package refactoringtopatterns.build.composite.rfc;
 
 import java.util.Hashtable;
 
 public class Tag extends Node {
-    protected static String TAGNAME;
+    protected static final String TAGNAME = "tagName";
 
     private int tagBegin;
     private int tagEnd;
@@ -24,4 +24,9 @@ public class Tag extends Node {
     public Hashtable getParsed() {
         return parsed;
     }
+
+    public String getParameter(String key) {
+        return "test";
+    }
+
 }

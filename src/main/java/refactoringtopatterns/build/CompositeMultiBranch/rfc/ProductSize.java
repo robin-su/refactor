@@ -1,4 +1,4 @@
-package refactoringtopatterns.build.CompositeMultiBranch;
+package refactoringtopatterns.build.CompositeMultiBranch.rfc;
 
 public enum ProductSize {
 

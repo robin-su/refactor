@@ -1,38 +1,35 @@
-package refactoringtopatterns.build.composite;
+package refactoringtopatterns.build.composite.rfc;
 
 import java.util.Enumeration;
-import java.util.Vector;
 
-public class LinkTag extends Tag {
+//2. 继承CompositeTag
+public class LinkTag extends CompositeTag {
 
-    protected Vector nodeVector;
 
-    private static final String TAGNAME = "tagName";
+
+    //2.1 pulled-up field to CompositeTag
+//    protected Vector nodeVector;
 
     public LinkTag(int tagBegin, int tagEnd, String tagContents, String tagLine) {
         super(tagBegin, tagEnd, tagContents, tagLine);
     }
 
-    public String toPlainTextString() {
-        StringBuffer sb = new StringBuffer();
-        Node node;
-
-        for (Enumeration e = linkData(); e.hasMoreElements();) {
-            node = (Node)e.nextElement();
-            sb.append(node.toPlainTextString());
-        }
-        return sb.toString();
-    }
-
-    public Enumeration linkData() {
-        return nodeVector.elements();
-    }
+    //4.此时LinkTag#LinkTag 和 FormTag#toPlainTextString 方法体是一样的，直接上移到CompositeTag
+//    public String toPlainTextString() {
+//        StringBuffer sb = new StringBuffer();
+//        Node node;
+//        for (Enumeration e = children(); e.hasMoreElements();) {
+//            node = (Node)e.nextElement();
+//            sb.append(node.toPlainTextString());
+//        }
+//        return sb.toString();
+//    }
 
     public String toHTML() {
         StringBuffer sb = new StringBuffer();
         putLinkStartTagInto(sb);
         Node node;
-        for(Enumeration e = linkData(); e.hasMoreElements();) {
+        for(Enumeration e = children(); e.hasMoreElements();) {
             node = (Node)e.nextElement();
             sb.append(node.toHTML());
         }
@@ -40,27 +37,16 @@ public class LinkTag extends Tag {
         return sb.toString();
     }
 
-    public void putLinkStartTagInto(StringBuffer sb) {
-        sb.append("</A ");
-        String key,value;
-        int i = 0;
-        for(Enumeration e = parsed.keys();e.hasMoreElements();) {
-            key = (String)e.nextElement();
-            i++;
-            if(key != TAGNAME) {
-                value = getParameter(key);
-                sb.append(key + "=\"" + value + "\"");
-                if(i < parsed.size() - 1) {
-                    sb.append(" ");
-                }
-            }
-        }
-        sb.append(">");
-    }
 
-    public String getParameter(String key) {
-        return "test";
-    }
+
+
+    // 3.1 该方法和 FormTag#getAllNodesVectors 逻辑上是一致的，提取到父类
+//    public Enumeration linkData() {
+//        return children.elements();
+//    }
+
+
+
 
 
 }

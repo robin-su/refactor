@@ -1,4 +1,4 @@
-package refactoringtopatterns.build.CompositeMultiBranch;
+package refactoringtopatterns.build.CompositeMultiBranch.rfc;
 
 import junit.framework.TestCase;
 
@@ -56,11 +56,18 @@ public class ProductReposityTest extends TestCase {
     }
 
     public void testFindByColorSizeAndBelowPrice() {
-        List<Spec> specs = new ArrayList<>();
+        //7.3
+//        List<Spec> specs = new ArrayList<>();
+        CompositeSpec specs = new CompositeSpec();
+
         specs.add(new ColorSpec(Color.red));
         specs.add(new SizeSpec(ProductSize.SMALL));
         specs.add(new BelowPriceSpec(10.00f));
 
+        //6.
+//        List<Product> foundProducts = repository.selectBy(specs);
+//        List<Product> foundProducts = repository.selectBy(new CompositeSpec(specs));
+        // 7.5
         List<Product> foundProducts = repository.selectBy(specs);
         assertEquals("small red products below $10.00",0,foundProducts.size());
     }

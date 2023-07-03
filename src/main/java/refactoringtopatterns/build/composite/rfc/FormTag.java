@@ -1,12 +1,15 @@
-package refactoringtopatterns.build.composite;
+package refactoringtopatterns.build.composite.rfc;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-public class FormTag extends Tag {
-
-    protected Vector allNodesVectors;
+//2.继承到CompositeTag
+public class FormTag extends CompositeTag {
+    //2.1 修改名字和Pulled-up field的保持一致
+//    protected Vector allNodesVectors;
+    //2.2 删除本地变量，使用Pulled-up到父类的变量
+//    private Vector nodeVector;
     private String formName;
     private String formURL;
     private static final String ACTION = "action";
@@ -15,15 +18,18 @@ public class FormTag extends Tag {
         super(tagBegin, tagEnd, tagContents, tagLine);
     }
 
-    public String toPlainTextString() {
-        StringBuffer stringRepresentation = new StringBuffer();
-        Node node;
-        for(Enumeration e=getAllNodesVectors().elements(); e.hasMoreElements();) {
-            node = (Node)e.nextElement();
-            stringRepresentation.append(node.toPlainTextString());
-        }
-        return stringRepresentation.toString();
-    }
+    //4.2
+//    public String toPlainTextString() {
+//        StringBuffer stringRepresentation = new StringBuffer();
+//        Node node;
+////        for(Enumeration e=getAllNodesVectors().elements(); e.hasMoreElements();) {
+//        for(Enumeration e = children(); e.hasMoreElements();) {
+//            node = (Node)e.nextElement();
+//            stringRepresentation.append(node.toPlainTextString());
+//        }
+//        return stringRepresentation.toString();
+//    }
+
 
     public String toHTML() {
         StringBuffer rawBuffer = new StringBuffer();
@@ -32,7 +38,7 @@ public class FormTag extends Tag {
         if(formName != null && formName.length() > 0) {
             rawBuffer.append(" NAME=\"" + formName + "\"");
         }
-        Enumeration e = allNodesVectors.elements();
+        Enumeration e = children();
         node = (Node)e.nextElement();
         Tag tag = (Tag)node;
         Hashtable table = tag.getParsed();
@@ -64,8 +70,9 @@ public class FormTag extends Tag {
 
     }
 
-    public Vector getAllNodesVectors() {
-        return this.allNodesVectors;
-    }
+    // 3.3 该方法和 LinkTag#getAllNodesVectors 重复，直接删除
+//    public Vector getAllNodesVectors() {
+//        return this.children;
+//    }
 
 }

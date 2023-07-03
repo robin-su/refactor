@@ -1,2 +1,10 @@
-package refactoringtopatterns.build.CompositeMultiBranch;public class Color {
+package refactoringtopatterns.build.CompositeMultiBranch;
+
+public enum Color {
+
+    red,
+    yellow,
+    pink,
+    white;
+
 }

@@ -1,4 +1,4 @@
-package refactoringtopatterns.build.composite;
+package refactoringtopatterns.build.composite.rfc;
 
 public class Node {
 
