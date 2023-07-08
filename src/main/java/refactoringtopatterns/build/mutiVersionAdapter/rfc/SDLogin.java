@@ -1,4 +1,4 @@
-package refactoringtopatterns.build.mutiVersionAdapter;
+package refactoringtopatterns.build.mutiVersionAdapter.rfc;
 
 import refactoringtopatterns.build.mutiVersionAdapter.exception.SDLoginFailedException;
 import refactoringtopatterns.build.mutiVersionAdapter.exception.SDSocketInitFailedException;

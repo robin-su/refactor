@@ -1,4 +1,4 @@
-package refactoringtopatterns.build.mutiVersionAdapter;
+package refactoringtopatterns.build.mutiVersionAdapter.exception;
 
-public class SDNotFuntionException {
+public class SDNotFuntionException extends Throwable {
 }

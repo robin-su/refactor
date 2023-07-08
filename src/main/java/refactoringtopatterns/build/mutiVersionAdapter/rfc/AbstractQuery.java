@@ -1,11 +1,8 @@
 package refactoringtopatterns.build.mutiVersionAdapter.rfc;
 
 import refactoringtopatterns.build.mutiVersionAdapter.exception.QueryException;
-import refactoringtopatterns.build.mutiVersionAdapter.exception.SDLoginFailedException;
-import refactoringtopatterns.build.mutiVersionAdapter.exception.SDNotFuntionException;
-import refactoringtopatterns.build.mutiVersionAdapter.exception.SDSocketInitFailedException;
 
-public abstract class AbstractQuery {
+public abstract class AbstractQuery implements Query  {
     // 3.1
 //    private SDLogin sdLogin; // needed for SD version 5.1
 //    private SDSession sdSession; // needed for SD version 5.1
@@ -15,7 +12,7 @@ public abstract class AbstractQuery {
 
     // this is a login for SD 5.1
     // NOTE: remove this when we convert all applications to 5.2
-    public abstract void login(String server, String user, String password) throws QueryException;
+//    public abstract void login(String server, String user, String password) throws QueryException;
 //    {
         // Make this a do-nothing method ---> 3.4
 //        sd52 = false;
